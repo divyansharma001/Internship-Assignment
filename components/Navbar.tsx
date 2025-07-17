@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ChevronDown, ArrowRight, HelpCircle, FileText, Gift, BarChart3, ShoppingCart, Globe, Users, Zap, CreditCard, Settings, Mail, Monitor, Trophy, Target, Megaphone, Share2, Search, MousePointer, TrendingUp } from "lucide-react";
+import { ChevronDown, ArrowRight, HelpCircle, FileText, Gift, BarChart3, ShoppingCart, Globe, Users, Zap, CreditCard, Settings, Mail, Monitor, Trophy, Target, Megaphone, Share2, Search, MousePointer, TrendingUp, Menu } from "lucide-react";
 import { useState } from "react";
 
 interface NavbarProps {
@@ -10,6 +10,7 @@ interface NavbarProps {
 
 export default function Navbar({ scrollY }: NavbarProps) {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const platformDropdown = (
     <div className="absolute top-full left-0 mt-2 w-max max-w-4xl bg-[#1a1827]/95 backdrop-blur-md border border-[#302e3c] rounded-2xl shadow-2xl p-6 z-[60]">
@@ -394,17 +395,46 @@ export default function Navbar({ scrollY }: NavbarProps) {
           Log In
         </Button>
         {scrollY > 10 ? (
-          <Button className="bg-lime-400 hover:bg-lime-500 text-black font-bold px-4 py-3 rounded-xl border border-lime-300">
+          <Button className="hidden md:inline-flex bg-lime-400 hover:bg-lime-500 text-black font-bold px-4 py-3 rounded-xl border border-lime-300">
             Sign Up Free
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         ) : (
-          <Button className="bg-[#5c7039] hover:bg-lime-500 text-white font-bold px-4 py-3 rounded-xl border border-lime-300">
+          <Button className="hidden md:inline-flex bg-[#5c7039] hover:bg-lime-500 text-white font-bold px-4 py-3 rounded-xl border border-lime-300">
             Sign Up Free
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         )}
+        
+        {/* Mobile Menu Button */}
+        <Button 
+          variant="ghost" 
+          className="md:hidden text-white/90 hover:text-white hover:bg-white/10 font-semibold h-10 px-4 py-2"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          <Menu className="h-4 w-4" />
+        </Button>
       </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="absolute top-full left-0 right-0 bg-[#1a1827]/95 backdrop-blur-md border border-[#302e3c] rounded-2xl shadow-2xl p-6 mt-2 md:hidden">
+          <div className="space-y-4">
+            <div className="border-b border-[#302e3c] pb-4">
+              <a href="#" className="block text-white/90 hover:text-white font-semibold py-2">Platform</a>
+              <a href="#" className="block text-white/90 hover:text-white font-semibold py-2">Solutions</a>
+              <a href="#" className="block text-white/90 hover:text-white font-semibold py-2">Templates</a>
+              <a href="#" className="block text-white/90 hover:text-white font-semibold py-2">Resources</a>
+              <a href="#" className="block text-white/90 hover:text-white font-semibold py-2">Pricing</a>
+            </div>
+            <div className="space-y-3">
+              <Button variant="ghost" className="w-full text-white/90 hover:text-white hover:bg-white/10 font-semibold justify-start">
+                Log In
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
