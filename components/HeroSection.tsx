@@ -3,16 +3,16 @@ import { ArrowRight } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="px-5 pt-20 md:pt-40 max-w-4xl mx-auto text-center">
+    <section className="px-5 pt-32 md:pt-52 lg:pt-40 lg:-mt-8 max-w-4xl mx-auto text-center">
       <div className="space-y-5 md:space-y-8">
         <div className="space-y-3 md:space-y-6">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white leading-snug md:leading-tight tracking-tight font-heading">
+          <h1 className="text-3xl md:text-5xl lg:text-7xl font-black text-white leading-snug md:leading-tight tracking-tight">
             Powerful Landing Pages
             <br />
             That Convert
           </h1>
 
-          <p className="text-sm md:text-lg text-white/80 leading-relaxed max-w-2xl mx-auto font-light">
+          <p className="text-sm md:text-lg lg:text-xl text-white/80 leading-relaxed max-w-2xl mx-auto font-light">
             Launch high-converting landing pages faster, generate qualified leads, and optimize your marketing efforts—all with one simple solution.
           </p>
         </div>

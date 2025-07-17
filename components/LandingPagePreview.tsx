@@ -16,7 +16,7 @@ export default function LandingPagePreview({ rotation, scale }: LandingPagePrevi
   }, []);
 
   return (
-    <section className="px-6 pb-20 pt-16 max-w-5xl mx-auto perspective-1000">
+    <section className="px-6 pb-20 pt-16 lg:pt-8 lg:-mt-8 max-w-5xl mx-auto perspective-1000">
       <div
         className="relative transition-transform duration-300 ease-out"
         style={{
@@ -25,7 +25,7 @@ export default function LandingPagePreview({ rotation, scale }: LandingPagePrevi
         }}
       >
         {/* Browser Window Frame */}
-        <div className="bg-white rounded-t-2xl shadow-2xl overflow-hidden mx-auto max-w-4xl transform-gpu">
+        <div className="bg-white rounded-t-2xl shadow-2xl overflow-hidden mx-auto w-[98%] sm:max-w-4xl lg:max-w-5xl transform-gpu">
           {/* Browser Bar */}
           <div className="bg-gray-100 px-4 py-3 flex items-center space-x-2">
             <div className="flex space-x-2">
