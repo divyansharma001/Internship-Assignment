@@ -1,16 +1,27 @@
+import { useEffect, useState } from "react";
+
 interface LandingPagePreviewProps {
   rotation: number;
   scale: number;
 }
 
 export default function LandingPagePreview({ rotation, scale }: LandingPagePreviewProps) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
-    <section className="px-6 pb-20 max-w-5xl mx-auto perspective-1000">
+    <section className="px-6 pb-20 pt-16 max-w-5xl mx-auto perspective-1000">
       <div
         className="relative transition-transform duration-300 ease-out"
         style={{
-          transform: `rotateX(${rotation}deg) scale(${scale})`,
-          transformStyle: 'preserve-3d'
+          transform: isMobile ? "none" : `rotateX(${rotation}deg) scale(${scale})`,
+          transformStyle: "preserve-3d"
         }}
       >
         {/* Browser Window Frame */}

@@ -101,7 +101,7 @@ const features: Feature[] = [
 
 export default function ProofSection({ logos, statistics }: ProofSectionProps) {
   return (
-    <section className="relative w-full -top-32 ">
+    <section className="relative w-full top-16 ">
       <div>
         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
           {/* Company Logos Marquee */}
